@@ -1,2 +1,2 @@
-### Community License Check
+# Community License Check
 
