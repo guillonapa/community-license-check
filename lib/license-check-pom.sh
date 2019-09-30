@@ -32,17 +32,18 @@ declare -i AGG_FAILED=0
 
 echo ""
 echo -e "${INFO} Verifying license declaration in all pom.xml files..."
+pwd
 
-for dir in $(${MVN} -Dexec.executable='echo' -Dexec.args='${project.basedir}/' exec:exec -q)
+for dir in $(mvn -Dexec.executable='echo' -Dexec.args='${project.basedir}/' exec:exec -q)
 do
 
 	cd ${dir}
 
-	# artifactId=$(${MVN} -N -Dexec.executable='echo' -Dexec.args='${project.artifactId}' exec:exec -q)
-	# name=$(${MVN} -N -Dexec.executable='echo' -Dexec.args='${project.name}' exec:exec -q | sed -e "s+TIBCO Streaming +TIBCO\&reg; Streaming +" -e "s+TIBCO StreamBase +TIBCO StreamBase\&reg; +")
-	# description=$(${MVN} -N -Dexec.executable='echo' -Dexec.args='${project.description}' exec:exec -q | sed -e "s+TIBCO Streaming +TIBCO\&reg; Streaming +" -e "s+TIBCO StreamBase +TIBCO StreamBase\&reg; +")
-	# parentversion=$(${MVN} -N -Dexec.executable='echo' -Dexec.args='${project.parent.version}' exec:exec -q)
-	tibcosample=$(${MVN} -N -Dexec.executable='echo' -Dexec.args='${com.tibco.ep.sb.studio.sample}' exec:exec -q)
+	# artifactId=$(mvn -N -Dexec.executable='echo' -Dexec.args='${project.artifactId}' exec:exec -q)
+	# name=$(mvn -N -Dexec.executable='echo' -Dexec.args='${project.name}' exec:exec -q | sed -e "s+TIBCO Streaming +TIBCO\&reg; Streaming +" -e "s+TIBCO StreamBase +TIBCO StreamBase\&reg; +")
+	# description=$(mvn -N -Dexec.executable='echo' -Dexec.args='${project.description}' exec:exec -q | sed -e "s+TIBCO Streaming +TIBCO\&reg; Streaming +" -e "s+TIBCO StreamBase +TIBCO StreamBase\&reg; +")
+	# parentversion=$(mvn -N -Dexec.executable='echo' -Dexec.args='${project.parent.version}' exec:exec -q)
+	tibcosample=$(mvn -N -Dexec.executable='echo' -Dexec.args='${com.tibco.ep.sb.studio.sample}' exec:exec -q)
 	reldir=$(echo "${dir}" | sed -e s+^${here}/++)
 
 	licenses=$(echo "cat //*[local-name()='project']/*[local-name()='licenses']/*[local-name()='license']" | xmllint --shell pom.xml | sed '/^\/ >/d' | sed 's/<[^>]*.//g')
