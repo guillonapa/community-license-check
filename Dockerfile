@@ -127,7 +127,7 @@ ENV BUNDLE_PATH="$GEM_HOME" \
 	BUNDLE_SILENCE_ROOT_WARNING=1 \
 	BUNDLE_APP_CONFIG="$GEM_HOME"
 # path recommendation: https://github.com/bundler/bundler/pull/6469#issuecomment-383235438
-ENV PATH $GEM_HOME/bin:$BUNDLE_PATH/gems/bin:/usr/bin:$PATH
+ENV PATH $GEM_HOME/bin:$BUNDLE_PATH/gems/bin:$PATH
 # adjust permissions of a few directories for running "gem install" as an arbitrary user
 RUN mkdir -p "$GEM_HOME" && chmod 777 "$GEM_HOME"
 # (BUNDLE_PATH = GEM_HOME, no need to mkdir/chown both)
@@ -144,6 +144,6 @@ RUN echo "cd /home/community-license-check;" > /home/init.sh; \
 	echo "git pull;" >> /home/init.sh; \
 	echo "ruby /home/community-license-check/test/test_community_license_check.rb /home/tibco-streaming-community;" >> /home/init.sh;
 
-RUN apk del --no-network .ruby-builddeps;
+# RUN apk del --no-network .ruby-builddeps;
 
 CMD [ "sh", "/home/init.sh" ]

@@ -7,7 +7,7 @@ describe CommunityLicenseCheck do
             clc = CommunityLicenseCheck.new ARGV
             @results = clc.run
             @results.each do |key, license|
-                _(license.key).must_equal "bsd-3-clause"
+                _(license.key).must_equal "bsd-2-clause"
             end
         end
     end
