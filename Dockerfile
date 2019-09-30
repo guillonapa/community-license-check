@@ -138,12 +138,6 @@ RUN cd /home; \
     bundle install --gemfile community-license-check/Gemfile;
     # ruby community-license-check/test/test_community_license_check.rb tibco-streaming-community;
 
-RUN echo "cd /home/community-license-check;" > /home/init.sh; \
-	echo "git pull;" >> /home/init.sh; \
-	echo "cd ../tibco-streaming-community;" >> /home/init.sh; \
-	echo "git pull;" >> /home/init.sh; \
-	echo "ruby /home/community-license-check/test/test_community_license_check.rb /home/tibco-streaming-community;" >> /home/init.sh;
-
 # RUN apk del --no-network .ruby-builddeps;
 
-CMD [ "sh", "/home/init.sh" ]
+CMD [ "sh", "/home/community-license-check/lib/test.sh" ]
