@@ -40,6 +40,7 @@ RUN set -eux; \
 		libxslt-dev \
 		linux-headers \
 		make \
+		maven \
         cmake \
         git \
 		ncurses-dev \

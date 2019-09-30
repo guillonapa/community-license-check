@@ -19,8 +19,8 @@ WARNING="${ORANGE}[WARNING]${NC}"
 ERROR="${RED}[ERROR]${NC}"
 SUCCESS="${GREEN}[SUCCESS]${NC}"
 
-MVN="${MVN3_5_4_HOME}/bin/mvn --global-settings ${SETTINGS} -Dmaven.repo.local=${WORKSPACE}/.repository ${mavenExtras}"
-# MVN=mvn
+# MVN="${MVN3_5_4_HOME}/bin/mvn --global-settings ${SETTINGS} -Dmaven.repo.local=${WORKSPACE}/.repository ${mavenExtras}"
+MVN=mvn
 
 here=$(pwd)
 
