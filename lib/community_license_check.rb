@@ -21,11 +21,10 @@ class CommunityLicenseCheck
     # return { "docs/Components-LICENSE" => #<License>, "components/ams-client" => #<License>, ... }
     def run
         results_hash = Hash.new
-        puts "Running check for repository in location: " << @proj_root
     
         # check for license in docs 'Components-LICENSE'
         docs = @proj_root + "/docs"
-        puts "Looking for 'Components-LICENSE' in " << docs
+        puts "Looking for 'Components-LICENSE' file in " << docs
         check_license(docs + "/Components-LICENSE", "docs/Components-LICENSE", results_hash)
     
         # check for each project in the components directory
@@ -41,12 +40,11 @@ class CommunityLicenseCheck
     
                 # check the license for each component
                 if (File.directory? component)
-                    puts "Looking for 'LICENSE' in " << component
+                    puts "Looking for 'LICENSE' file in " << component
                     check_license component, "components/" + file, results_hash
                 end
             end
         end
-        puts "DONE!"
         return results_hash
     end
     
