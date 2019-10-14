@@ -6,11 +6,13 @@ describe CommunityLicenseCheck do
     describe 'testing for correct licenses' do
         puts "Running tests for repository in location: " << File.expand_path(ARGV[0])
 
-        it 'must have a valid license in docs and valid individual licenses per component' do
+        describe 'verifying license files' do
             clc = CommunityLicenseCheck.new ARGV
             @results = clc.run
             @results.each do |key, license|
-                _(license.key).must_equal "bsd-3-clause"
+                it ' [' + key + ' must have a bsd-3-clause license]' do
+                    _(license.key).must_equal "bsd-3-clause"
+                end
             end
         end
 
