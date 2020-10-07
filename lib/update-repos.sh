@@ -1,6 +1,5 @@
 #!/bin/bash
 
-cd /home/community-license-check
+cd tibco-streaming-community
 git pull
-cd /home/tibco-streaming-community
-git pull
+cd ..
