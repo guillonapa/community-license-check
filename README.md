@@ -44,5 +44,6 @@ $ docker run --rm -ti license-check
 
 ## Details
 
-* [Ruby](https://www.ruby-lang.org/en/): 2.6.4
+* [Ruby](https://www.ruby-lang.org/en/): 2.6.6
 * [Licensee](https://github.com/licensee/licensee): 5.12
+* 
