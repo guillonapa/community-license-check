@@ -7,4 +7,4 @@ gem 'licensee', '~> 9.11'
 gem 'minitest', '~> 5.12'
 
 # parsing XML documents
-gem 'rexml', '~> 3.2', '>= 3.2.2'
+gem 'rexml', '~> 3.2'
